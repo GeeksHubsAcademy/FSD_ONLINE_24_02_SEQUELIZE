@@ -46,6 +46,34 @@ app.post("/api/authors", (req, res) => {
 	});
 });
 
+app.get(
+  '/api/authors',
+  (req, res) => {
+    res.status(200).json(
+      {
+        success: true,
+        message: "Authors retrieved"
+      }
+    )
+  }
+)
+
+app.put(
+  '/api/authors/:id',
+  (req, res) => {
+    console.log(req.params.id);
+    
+    res.status(200).json(
+      {
+        success: true,
+        message: "Author updated"
+      }
+    )
+  }
+)
+
+
+
 app.listen(PORT, () => {
 	console.log(`Server listening on port: ${PORT}`);
 });
