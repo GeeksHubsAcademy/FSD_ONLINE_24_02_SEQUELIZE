@@ -1,6 +1,7 @@
 const express = require("express");
 // require('dotenev').config()
 const dotenv = require("dotenv");
+const authorController = require("./controllers/authorController");
 dotenv.config();
 
 const app = express();
@@ -17,34 +18,7 @@ app.get("/api/healthy", (req, res) => {
 });
 
 // CRUD DE AUTHORS
-app.post("/api/authors", (req, res) => {
-  // REcuperamos la info
-	console.log(req.body);
-	const name = req.body.name;
-	const nationality = req.body.nationality;
-	console.log(name);
-	console.log(nationality);
-
-  // Validar Info. Esto son solo ejemplos
-  if(!name) {
-    return res.status(400).json({
-      success: false,
-      message: "Name required",
-    });
-  }
-
-  // Si hace falta tratamos la info, esto son solo ejemplos
-  let newNationality = nationality.toLowerCase()
-  console.log(newNationality);
-
-  // Atacar a la bd para crear el nuevo registro del author
-  
-
-	res.status(201).json({
-		success: true,
-		message: "Author created",
-	});
-});
+app.post("/api/authors", authorController.createAuthor);
 
 app.get(
   '/api/authors',
@@ -62,7 +36,7 @@ app.put(
   '/api/authors/:id',
   (req, res) => {
     console.log(req.params.id);
-    
+
     res.status(200).json(
       {
         success: true,
