@@ -107,5 +107,15 @@ $ npx sequelize-cli db:migrate
 ```
 
 ```sh
-npx sequelize-cli db:migrate:undo
+$ npx sequelize-cli db:migrate:undo
+```
+
+- Crear seed
+```sh
+$ npx sequelize-cli seed:generate --name demo-user
+```
+
+- Ejecutar seed
+```sh
+$ npx sequelize-cli db:seed:all
 ```
