@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Favourite_books',
+    tableName: 'favourite_books'
   });
   return Favourite_books;
 };

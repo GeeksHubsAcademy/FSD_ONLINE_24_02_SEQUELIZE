@@ -14,10 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Loan.init({
-    loan_date: DataTypes.DATE
+    loan_date: DataTypes.DATE,
+    due_date: DataTypes.DATE,
+    return_date: DataTypes.DATE,
+    id_user: DataTypes.INTEGER,
+    id_book: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Loan',
+    tableName: 'loans'
   });
   return Loan;
 };
